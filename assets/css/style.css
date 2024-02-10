@@ -11,6 +11,10 @@
     --blue-700: hsl(204, 100%, 36%); 
 
     --text-primary: hsl(196, 100%, 5%);
+    --text-white: hsl(0, 0%, 100%);
+    --text-blue-300: hsl(198, 98%, 44%);
+    --text-blue-700: hsl(204, 100%, 36%);
+    --text-blue-1000: hsl(204, 100%, 36%);
 }
 
 body {
@@ -129,14 +133,14 @@ header .auth_options a, #menu {
     font-weight: 600;
     border: 0.6px solid var(--blue-700);
     background-color: var(--primary);
-    color: var(--blue-700);
+    color: var(--text-blue-700);
     border-radius: 25px;
     padding-block: 12px;
 }
 
 header .auth_options a.signup {
     background-color: var(--blue-700);
-    color: var(--primary);
+    color: var(--text-white);
 }
 
 @media screen and (max-width: 1152px) {
@@ -167,7 +171,7 @@ header .auth_options a.signup {
     position: relative;
     text-align: center;
     background-color: var(--blue-300);
-    color: var(--primary);
+    color: var(--text-white);
     overflow: hidden;
 }
 
@@ -203,7 +207,7 @@ header .auth_options a.signup {
     text-wrap: nowrap;
     width: 100%;
     background-color: var(--primary);
-    color: var(--blue-1000);
+    color: var(--text-blue-1000);
     border-radius: 25px;
     font-weight: 700;
 }
@@ -256,7 +260,7 @@ header .auth_options a.signup {
 
 #hero .row-2 {
     background-color: var(--blue-1000);
-    color: var(--primary);
+    color: var(--text-white);
     padding-block: 30px;
 }
 
