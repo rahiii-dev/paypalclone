@@ -501,3 +501,13 @@ header .auth_options a.signup {
         border-radius: 4px;
     }
 }
+
+/* Terms & Conditions */
+#terms {
+    padding-block: 40px;
+}
+
+#terms .content {
+    font-weight: 400;
+    line-height: 1.5;
+}
