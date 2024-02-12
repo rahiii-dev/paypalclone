@@ -327,7 +327,8 @@ header .auth_options a.signup {
     padding-top: 20px;
 }
 
-#features .row .container .content a {
+#features .row .container .content a,
+#community .container .content a {
     cursor: pointer;
     display: inline-block;
     width: 100%;
@@ -412,5 +413,91 @@ header .auth_options a.signup {
     #brands .container .images {
         justify-content: space-around;
         flex-wrap: wrap;
+    }
+}
+
+/* Community */
+#community > div{
+    background-color: var(--blue-300);
+    color: var(--primary);
+}
+
+#community .container .content {
+    width: 83%;
+    text-align: center;
+    padding: 60px 12px;
+    margin: auto;
+}
+
+@media screen and (max-width: 751px) {
+    #community .container .content {
+        padding-block: 40px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #community .container .content {
+        width: 100%;
+    }
+}
+
+#community .container .content h2 {
+    font-size: 34px;
+    font-weight: 400;
+}
+
+#community .container .content a {
+    background-color: var(--primary);
+    color: var(--blue-700);
+    border: none;
+    padding: 13px 24px;
+    margin-top: 30px;
+}
+
+#community .container .clock {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 5px;
+    padding-bottom: 30px;
+}
+
+#community .container .clock .second {
+    width: 62px;
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 41px;
+    font-weight: 500;
+    background-color: var(--primary);
+    color: var(--text-primary);
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 956px) {
+    #community .container .clock .second {
+        width: 55px;
+        height: 55px;
+        font-size: 30px;
+        border-radius: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #community .container .clock .second {
+        width: 40px;
+        height: 42px;
+        font-size: 25px;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    #community .container .clock .second {
+        width: 36px;
+        height: 52px;
+        font-size: 32px;
+        border-radius: 4px;
     }
 }
