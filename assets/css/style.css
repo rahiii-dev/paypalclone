@@ -316,7 +316,8 @@ header .auth_options a.signup {
     width: 50%;
 }
 
-#features .row .container .content h2 {
+#features .row .container .content h2,
+#brands .container h2 {
     color: var(--blue-300);
     font-size: 40px;
     font-weight: 400;
@@ -368,7 +369,8 @@ header .auth_options a.signup {
         text-align: center;
     }
 
-    #features .row .container .content h2 {
+    #features .row .container .content h2,
+    #brands .container h2 {
         font-size: 30px;
     }
     
@@ -379,5 +381,36 @@ header .auth_options a.signup {
     #features .row .container img {
         max-width: 350px;
         max-height: none;
+    }
+}
+
+/* Brands */
+#brands {
+    padding-block: 60px;
+}
+
+#brands .container {
+    text-align: center;
+}
+
+#brands .container h2 {
+    margin-bottom: 30px;
+}
+
+#brands .container .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 30px;
+}
+
+#brands .container .images img {
+    padding-inline: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+    #brands .container .images {
+        justify-content: space-around;
+        flex-wrap: wrap;
     }
 }
