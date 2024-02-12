@@ -511,3 +511,58 @@ header .auth_options a.signup {
     font-weight: 400;
     line-height: 1.5;
 }
+
+/* footer */
+footer {
+    padding-block: 60px;
+}
+
+@media screen and (max-width: 751px) {
+    footer {
+        padding-block: 40px;
+    }
+}
+
+footer .container a {
+    text-decoration: none;
+}
+
+footer .container .row {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.5;
+}
+
+footer .container .row nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+footer .container .row nav ul li a {
+    font-size: 14px;
+    font-weight: 500;
+    color: hsl(180, 6%, 39%);
+}
+
+footer .container .row nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .container .row .country {
+    opacity: 0.5;
+}
+
+footer .container .row .country img {
+    width: 32px;
+    height: auto;
+}
+
+footer .desc p {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+footer .desc p:first-child {
+    margin-block: 12px 25px;
+}
