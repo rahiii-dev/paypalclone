@@ -550,13 +550,32 @@ footer .container .row {
 footer .container .row nav ul {
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 18px;
 }
 
+@media screen and (max-width: 1150px) {
+    footer .container .row {
+        flex-direction: column;
+    }
+
+    footer .container .row:first-child {
+        flex-direction: column-reverse;
+    }
+
+    footer .container .row nav ul {
+        flex-wrap: wrap;
+    }
+}
+
+footer .container .row nav ul li,
 footer .container .row nav ul li a {
     font-size: 14px;
-    font-weight: 500;
-    color: hsl(180, 6%, 39%);
+    color: rgb(104, 113, 115);
+    padding-block: 10px;
+}
+
+footer .container .row:first-child nav ul li a {
+    color: rgb(44, 46, 47);
 }
 
 footer .container .row nav ul li a:hover {
@@ -568,13 +587,19 @@ footer .container .row .country {
 }
 
 footer .container .row .country img {
-    width: 32px;
+    width: 25px;
     height: auto;
 }
 
 footer .desc p {
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgb(104, 113, 115);
     line-height: 1.7;
+}
+
+footer .desc p a {
+    color: var(--blue-700);
 }
 
 footer .desc p:first-child {
