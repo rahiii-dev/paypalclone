@@ -59,11 +59,13 @@ body {
 
 /* header */
 header {
+    --height: 72px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    position: relative;
 }
 
-header .container {
-    min-height: 56px;
+header .main {
+    height: var(--height);
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -71,7 +73,7 @@ header .container {
     overflow: hidden;
 }
 
-header #menu {
+header #menu-btn {
     display: none;
 }
 
@@ -111,7 +113,7 @@ header nav ul li {
 header nav ul li::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     width: 100%;
     height: 3px;
@@ -138,7 +140,7 @@ header .auth_options {
     gap: 5px;
 }
 
-header .auth_options a, #menu {
+header .auth_options a, #menu-btn {
     cursor: pointer;
     display: inline-block;
     width: 84px;
@@ -154,7 +156,7 @@ header .auth_options a, #menu {
     padding: 11px 18px;
 }
 
-#menu {
+#menu-btn {
     padding-block: 9px;
     padding-inline: 12px 16px;
     font-weight: 700;
@@ -166,12 +168,16 @@ header .auth_options a.signup {
 }
 
 @media screen and (max-width: 1152px) {
+    header {
+        --height: 56px;
+    }
+
     header .logo {
         width: 28px;
         overflow: hidden;
     }
 
-    header #menu {
+    header #menu-btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -185,6 +191,112 @@ header .auth_options a.signup {
     header .auth_options a.signup {
         display: none;
     }
+}
+
+/* header menu */
+header #menu {
+    position: absolute;
+    top: var(--height);
+    left: 0;
+    right: 0;
+    background-color: hsl(222, 98%, 21%);
+    padding-block: 6px;
+    border-bottom: 1px solid var(--primary);
+    overflow: hidden;
+    z-index: 10;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 500ms ease-in-out;
+}
+
+header #menu.active {
+    transform: scaleY(100%);
+}
+
+header #menu .container {
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+header #menu .content .content-data {
+    display: none;
+}
+
+header #menu .content .content-data ul {
+    list-style: none;
+}
+
+header #menu .content .content-data > ul {
+    --w: 100%;
+    display: flex;
+    width: var(--w);
+    color: var(--text-white);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+header #menu .content .content-data > ul > li {
+    width: 100vw;
+    max-width: 270px;
+    padding-block: 20px;
+}
+
+header #menu .content .content-data ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-white);
+}
+header #menu .content .content-data ul li a span {
+    display: block;
+    font-size: 12px;
+}
+
+header #menu .content .content-data ul li a:hover {
+    text-decoration: underline;
+}
+
+header #menu .content .content-data > ul.title {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+header #menu .content .content-data > ul.title > li {
+    min-width: 100%;
+}
+
+header #menu .content .content-data > ul.title > li h4 {
+    text-transform: uppercase;
+    font-family: var(--font-big);
+    font-size: 15px;
+    font-weight: 400;
+    color: rgb(234, 236, 237);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+header #menu .content .content-data > ul.title > li > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+header #menu .content .content-data > ul.title > li > div ul li {
+    padding-block: 10px;
+}
+
+#menu-close {
+    position: absolute;
+    right: calc(var(--px) / 2);
+    top: 0;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: transparent;
+    color: var(--primary);
+    border: none;
+    padding: 10px 14px;
 }
 
 /* hero section */
