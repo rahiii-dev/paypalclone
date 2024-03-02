@@ -147,6 +147,10 @@ header .auth_options a.signup {
     color: var(--text-white);
 }
 
+#menu-close {
+    display: none;
+}
+
 @media screen and (max-width: 1152px) {
     header {
         --height: 56px;
@@ -195,6 +199,7 @@ header .auth_options a.signup {
     }
 
     #menu-close {
+        display: block;
         cursor: pointer;
         position: absolute;
         top: 0;
@@ -215,7 +220,6 @@ header .sub-menu {
     left: 0;
     background-color: hsl(222, 98%, 21%);
     padding: 0;
-    border-bottom: 1px solid var(--primary);
     overflow: hidden;
     z-index: 10;
     max-height: 0;
@@ -293,18 +297,6 @@ header nav ul li.list-item:hover .sub-menu {
     header .sub-menu {
         display: none;
     }
-}
-
-/* sidena */
-/* body {
-    display: flex;
-} */
-#side-nav {
-    display: none;
-    min-width: 50vw;
-    background-color: hsl(222, 98%, 21%);
-    color: var(--primary);
-    transform: translateX(-100%);
 }
 
 /* hero section */
@@ -429,46 +421,46 @@ header nav ul li.list-item:hover .sub-menu {
 }
 
 /* Features */
-#features .row:not(.row-odd) {
+#features .item:not(.item-odd) {
     background-color: var(--grey-200);
 }
 
-#features .row {
+#features .item {
     padding: 40px 60px;
     overflow: hidden;
 }
 
-#features .row .container {
+#features .item .container {
     display: flex;
     flex-wrap: nowrap;
 }
 
-#features .row-odd .container {
+#features .item-odd .container {
     flex-direction: row-reverse;
 }
 
-#features .row .container > div {
+#features .item  > div {
     padding-inline: 12px;
 }
 
-#features .row .container .content {
+#features .item  .content {
     align-self: center;
     width: 50%;
 }
 
-#features .row .container .content h2,
+#features .item  .content h2,
 #brands .container h2 {
     font-family: var(--font-big);
     font-size: 40px;
     color: var(--blue-300);
 }
 
-#features .row .container .content p {
+#features .item  .content p {
     padding-top: 20px;
     font-weight: 400;
 }
 
-#features .row .container .content a,
+#features .item  .content a,
 #community .container .content a {
     cursor: pointer;
     display: inline-block;
@@ -485,41 +477,42 @@ header nav ul li.list-item:hover .sub-menu {
     margin-top: 20px;
 }
 
-#features .row .container img {
+#features .item  img {
     width: 100%;
     height: auto;
     max-height: 350px;
+    margin: auto;
 }
 
 @media screen and (max-width: 751px) {
 
-    #features .row {
+    #features .item {
         padding-inline: 13px;
     }
 
-    #features .row .container {
+    #features .item .container {
         flex-direction: column;
     }
 
-    #features .row-odd .container {
+    #features .item-odd .container {
         flex-direction: column-reverse;
     }
 
-    #features .row .container .content {
+    #features .item .content {
         width: 100%;
         text-align: center;
     }
 
-    #features .row .container .content h2,
+    #features .item  .content h2,
     #brands .container h2 {
         font-size: 30px;
     }
     
-    #features .row .container {
+    #features .item  {
         text-align: center;
     }
 
-    #features .row .container img {
+    #features .item  img {
         max-width: 350px;
         max-height: none;
     }
