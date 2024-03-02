@@ -1,37 +1,17 @@
-const listEls = document.querySelectorAll("#menu-nav > ul > li");
-const menuEl = document.getElementById("menu");
-const menuCloseBtnEl = document.getElementById("menu-close");
+const mobileTogglerEl = document.getElementById("menu-btn");
+const menuCloseEl = document.getElementById("menu-close");
+const menuNavEl = document.getElementById("menu-nav");
 
-// functions
-function resetListel() {
-    if (menuEl.classList.contains("active")) {
-        menuEl.classList.remove("active");    
+mobileTogglerEl.addEventListener('click', navbarToggle);
+menuCloseEl.addEventListener('click', navbarToggle);
+
+function navbarToggle(){
+    menuNavEl.classList.toggle("active");
+
+    if(menuNavEl.classList.contains('active')){
+        menuNavEl.style.left = 0;
     }
-
-    listEls.forEach(elem => {
-        let elmData = elem.getAttribute("data-menu");
-        let contentDataEl = document.querySelector(`#menu [data-menu='${elmData}']`);
-        if (contentDataEl) {
-            contentDataEl.style.display = "none";
-        }
-    });
+    else {
+        menuNavEl.style.left = `${-100}%`;
+    }
 }
-
-// events
-listEls.forEach(element => {
-    element.addEventListener("mouseover", () => {
-        resetListel()
-
-        let elmData = element.getAttribute("data-menu");
-        let contentDataEl = document.querySelector(`#menu [data-menu='${elmData}']`);
-        if (contentDataEl) {
-            contentDataEl.style.display = "flex";
-            menuEl.classList.add("active");
-        }
-    });
-
-});
-
-menuEl.addEventListener("mouseleave", resetListel);
-menuCloseBtnEl.addEventListener("click", resetListel);
-

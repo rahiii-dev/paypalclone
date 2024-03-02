@@ -36,7 +36,7 @@ body {
     min-height: 100vh;
 }
 
-.container {
+/* .container {
     --px: 48px;
     width: min(100%, 1190px);
     overflow: hidden;
@@ -66,10 +66,6 @@ header {
 
 header .main {
     height: var(--height);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
     overflow: hidden;
 }
 
@@ -88,21 +84,11 @@ header .logo img {
     height: auto;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-}
 
-header nav ul li {
+header nav ul li.list-item {
     cursor: pointer;
+    height: var(--height);
     position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    text-wrap: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    gap: 5px;
     color: var(--text-primary);
     font-size: 14px;
     font-weight: 700;
@@ -110,7 +96,7 @@ header nav ul li {
     margin: 0px 1px;
 }
 
-header nav ul li::after {
+header nav ul li.list-item::after {
     content: "";
     position: absolute;
     bottom: -1px;
@@ -132,12 +118,6 @@ header nav ul li .icon {
 
 header nav ul li:hover .icon {
     rotate: -180deg;
-}
-
-header .auth_options {
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
 header .auth_options a, #menu-btn {
@@ -184,49 +164,71 @@ header .auth_options a.signup {
         gap: 8px;
     }
 
-    header nav{
+    #menu-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 50vw;
+        height: 100vh;
+        background-color: hsl(222, 98%, 21%);
+        color: white;
+        overflow: hidden;
+        padding-top: 50px;
+        z-index: 10;
+        transition: left 400ms linear;
+    }
+
+    #menu-nav > ul {
+        all: unset !important;
+        flex-direction: column;
+    }
+
+    #menu-nav ul li{
+        display: block;
+        text-transform: uppercase;
+        color: white;
+        padding: 20px 10px;
+    }
+
+    #menu-nav ul li::after {
         display: none;
+    }
+
+    #menu-close {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px 15px;
     }
     
     header .auth_options a.signup {
         display: none;
     }
-}
+} 
 
-/* header menu */
-header #menu {
-    position: absolute;
+/* header sub menu */
+header .sub-menu {
+    width: 100%;
+    position: fixed;
     top: var(--height);
     left: 0;
-    right: 0;
     background-color: hsl(222, 98%, 21%);
-    padding-block: 6px;
+    padding: 0;
     border-bottom: 1px solid var(--primary);
     overflow: hidden;
     z-index: 10;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 500ms ease-in-out;
+    max-height: 0;
+    transition: all 500ms ease-in-out;
 }
 
-header #menu.active {
-    transform: scaleY(100%);
+header nav ul li.list-item:hover .sub-menu {
+    max-height: 100vh;
+    padding-block: 6px;
 }
 
-header #menu .container {
-    position: relative;
-    /* border: 1px solid red; */
-}
 
-header #menu .content .content-data {
-    display: none;
-}
-
-header #menu .content .content-data ul {
-    list-style: none;
-}
-
-header #menu .content .content-data > ul {
+.sub-menu .content > ul {
     --w: 100%;
     display: flex;
     width: var(--w);
@@ -235,38 +237,38 @@ header #menu .content .content-data > ul {
     gap: 10px;
 }
 
-header #menu .content .content-data > ul > li {
+.sub-menu .content > ul > li {
     width: 100vw;
     max-width: 270px;
     padding-block: 20px;
 }
 
-header #menu .content .content-data ul li a {
+.sub-menu .content ul li a {
     text-decoration: none;
     font-size: 15px;
     font-weight: 400;
     color: var(--text-white);
 }
-header #menu .content .content-data ul li a span {
+.sub-menu .content ul li a span {
     display: block;
     font-size: 12px;
 }
 
-header #menu .content .content-data ul li a:hover {
+.sub-menu .content ul li a:hover {
     text-decoration: underline;
 }
 
-header #menu .content .content-data > ul.title {
+.sub-menu .content > ul.title {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 
-header #menu .content .content-data > ul.title > li {
+.sub-menu .content > ul.title > li {
     min-width: 100%;
 }
 
-header #menu .content .content-data > ul.title > li h4 {
+.sub-menu .content > ul.title > li h4 {
     text-transform: uppercase;
     font-family: var(--font-big);
     font-size: 15px;
@@ -277,26 +279,32 @@ header #menu .content .content-data > ul.title > li h4 {
     margin-bottom: 8px;
 }
 
-header #menu .content .content-data > ul.title > li > div {
+.sub-menu .content > ul.title > li > div {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
-header #menu .content .content-data > ul.title > li > div ul li {
+.sub-menu .content > ul.title > li > div ul li {
     padding-block: 10px;
 }
 
-#menu-close {
-    position: absolute;
-    right: calc(var(--px) / 2);
-    top: 0;
-    cursor: pointer;
-    font-size: 24px;
-    background-color: transparent;
+@media screen and (max-width: 1152px){
+    header .sub-menu {
+        display: none;
+    }
+}
+
+/* sidena */
+/* body {
+    display: flex;
+} */
+#side-nav {
+    display: none;
+    min-width: 50vw;
+    background-color: hsl(222, 98%, 21%);
     color: var(--primary);
-    border: none;
-    padding: 10px 14px;
+    transform: translateX(-100%);
 }
 
 /* hero section */
